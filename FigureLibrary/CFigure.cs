@@ -46,6 +46,13 @@
                 return Math.Round(Math.Sqrt(p * (p - SideA) * (p - SideB) * (p - SideC)), 2);
             }
         }
-        
+        // Проверка, является ли трекгольник прямоугольным
+        public bool IsRightAngle()
+        {
+            if (Math.Pow(SideA, 2) + Math.Pow(SideB, 2) == Math.Pow(SideC, 2) || (Math.Pow(SideA, 2) + Math.Pow(SideC, 2)) == Math.Pow(SideB, 2) || Math.Pow(SideB, 2) + Math.Pow(SideC, 2) == Math.Pow(SideA, 2))
+                return true;
+            else
+                return false;
+        }
     }
 }
