@@ -32,24 +32,29 @@
         // Расчет площади фигуры
         public double GetArea()
         {
+            switch (FigureType)
+            {
+                case "Круг":
+                    // Вычилсяем площадь круга
+                    return Math.Round(Math.PI * Math.Pow(Radius, 2), 2);
 
-            if (FigureType == "Круг")
-            {
-                // Вычилсяем площадь круга
-                return Math.Round(Math.PI * Math.Pow(Radius, 2), 2);
+                case "Треугольник":
+                    // Вычисляем площадь треугольника по формуле Герона
+                    double p; // Полупериметр
+                    p = (SideA + SideB + SideC) / 2;
+                    return Math.Round(Math.Sqrt(p * (p - SideA) * (p - SideB) * (p - SideC)), 2);
+                default:
+                    return 0.00;
             }
-            else
-            {
-                // Вычисляем площадь треугольника по формуле Герона
-                double p; // Полупериметр
-                p = (SideA + SideB + SideC) / 2;
-                return Math.Round(Math.Sqrt(p * (p - SideA) * (p - SideB) * (p - SideC)), 2);
-            }
+
+            
         }
         // Проверка, является ли трекгольник прямоугольным
         public bool IsRightAngle()
         {
-            if (Math.Pow(SideA, 2) + Math.Pow(SideB, 2) == Math.Pow(SideC, 2) || (Math.Pow(SideA, 2) + Math.Pow(SideC, 2)) == Math.Pow(SideB, 2) || Math.Pow(SideB, 2) + Math.Pow(SideC, 2) == Math.Pow(SideA, 2))
+            if (Math.Pow(SideA, 2) + Math.Pow(SideB, 2) == Math.Pow(SideC, 2) ||
+                (Math.Pow(SideA, 2) + Math.Pow(SideC, 2)) == Math.Pow(SideB, 2) ||
+                Math.Pow(SideB, 2) + Math.Pow(SideC, 2) == Math.Pow(SideA, 2))
                 return true;
             else
                 return false;

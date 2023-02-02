@@ -3,7 +3,7 @@
 {
     private static void Main(string[] args)
     {
-        CFigure circle = new CFigure(3.0);
+        CFigure circle = new CFigure(2.0);
         Console.WriteLine($"Создан объект типа {circle.FigureType}");
         Console.WriteLine($"Площадь круга {circle.GetArea()}");
 
